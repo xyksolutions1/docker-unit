@@ -1,3 +1,9 @@
+## 1.0.3 2024-04-06 <dave at tiredofit dot ca>
+
+   ### Added
+      - Unit 1.32.0
+
+
 ## 1.0.2 2023-12-08 <dave at tiredofit dot ca>
 
    ### Added
