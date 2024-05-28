@@ -1,10 +1,10 @@
 ARG DISTRO=alpine
-ARG DISTRO_VARIANT=3.19
+ARG DISTRO_VARIANT=3.20
 
 FROM docker.io/tiredofit/${DISTRO}:${DISTRO_VARIANT}
 LABEL maintainer="Dave Conroy (github.com/tiredofit)"
 
-ARG PHP_BASE=8.2
+ARG PHP_BASE=8.3
 ARG UNIT_VERSION
 
 ENV UNIT_VERSION=1.32.1 \
@@ -18,6 +18,7 @@ ENV UNIT_VERSION=1.32.1 \
 RUN source assets/functions/00-container && \
     set -x && \
     case "${PHP_BASE}" in \
+       8.3 ) export php_abbrev="83";; \
        8.2 ) export php_abbrev="82";; \
        8.1 ) export php_abbrev="81";; \
        8.0 ) export php_abbrev="8";; \
@@ -26,7 +27,8 @@ RUN source assets/functions/00-container && \
     esac ; \
     case "$(cat /etc/os-release | grep VERSION_ID | cut -d = -f 2 | cut -d . -f 1,2 | cut -d _ -f 1)" in \
         3.12 | 3.15 | 3.16 ) php_packages="php${php_abbrev}-dev php${php_abbrev}-embed" ; _php_config="./configure php --module=php${php_abbrev} --config=php-config${php_abbrev}" ;; \
-        *) php_packages="php82-dev php82-embed php81-dev php81-embed" ; _php_config="./configure php --module=php81 --config=php-config81" ; _php_config2="./configure php --module=php82 --config=php-config82" ;  ;; \
+        3.19 ) php_packages="php81-dev php81-embed" ; _php_config="./configure php --module=php81 --config=php-config81" ; ;; \
+        *) php_packages="php82-dev php82-embed php83-dev php83-embed" ; _php_config="./configure php --module=php82 --config=php-config82" ; _php_config2="./configure php --module=php83 --config=php-config83" ; ;; \
     esac ; \
     sed -i "/www-data/d" /etc/group* && \
     addgroup -S -g 82 "${UNIT_GROUP}" && \
@@ -48,6 +50,7 @@ RUN source assets/functions/00-container && \
                     nodejs \
                     npm \
                     openssl-dev \
+                    patch \
                     pcre-dev \
                     perl-dev \
                     ${php_packages} \

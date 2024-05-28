@@ -1,3 +1,10 @@
+## 1.0.5 2024-05-27 <dave at tiredofit dot ca>
+
+   ### Added
+      - Add PHP 8.3 Support via Alpine 3.20
+      - Move PHP 8.1 support to Alpine 3.19 only
+
+
 ## 1.0.4 2024-04-09 <dave at tiredofit dot ca>
 
    ### Added
