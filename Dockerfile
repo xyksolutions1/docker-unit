@@ -1,5 +1,5 @@
 ARG DISTRO=alpine
-ARG DISTRO_VARIANT=3.20
+ARG DISTRO_VARIANT=3.21
 
 FROM docker.io/tiredofit/${DISTRO}:${DISTRO_VARIANT}
 LABEL maintainer="Dave Conroy (github.com/tiredofit)"
@@ -7,7 +7,7 @@ LABEL maintainer="Dave Conroy (github.com/tiredofit)"
 ARG PHP_BASE=8.3
 ARG UNIT_VERSION
 
-ENV UNIT_VERSION=1.32.1 \
+ENV UNIT_VERSION=1.34.1 \
     UNIT_USER=unit \
     UNIT_GROUP=www-data \
     UNIT_WEBROOT=/www/html \
@@ -18,6 +18,7 @@ ENV UNIT_VERSION=1.32.1 \
 RUN source assets/functions/00-container && \
     set -x && \
     case "${PHP_BASE}" in \
+       8.4 ) export php_abbrev="84";; \
        8.3 ) export php_abbrev="83";; \
        8.2 ) export php_abbrev="82";; \
        8.1 ) export php_abbrev="81";; \
@@ -83,7 +84,7 @@ RUN source assets/functions/00-container && \
         && \
     ./configure nodejs && \
     ./configure perl && \
-    ${_php_config} ; ${_php_config2} && \
+    ${_php_config} ; ${_php_config2} ${_php_config3} && \
     ./configure python --config=python3-config && \
     ./configure ruby && \
     make -j $(nproc) && \

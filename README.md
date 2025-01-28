@@ -77,10 +77,10 @@ The following image tags are available along with their tagged release based on 
 ##### Alpine Builds
 | Alpine Base | Node Base | Perl Base | PHP base | Python Base | Ruby Base | Tag            |
 | ----------- | --------- | --------- | -------- | ----------- | --------- | -------------- |
-| latest      | 20        | 5.38      | 8.3, 8.2 | 3.11        | 3.2       | `:latest`      |
-| latest      | 20        | 5.38      | 8.3, 8.2 | 3.11        | 3.2       | `:alpine`      |
-| edge        | 20        | 5.38      | 8.3, 8.2 | 3.11        | 3.2       | `:alpine-edge` |
-| 3.20        | 20        | 5.38      | 8.3, 8.2 | 3.11        | 3.2       | `:alpine-edge` |
+| latest      | 22        | 5.40      | 8.3, 8.2 | 3.12        | 3.3       | `:latest`      |
+| latest      | 22        | 5.40      | 8.3, 8.2 | 3.12        | 3.3       | `:alpine`      |
+| edge        | 22        | 5.40      | 8.3, 8.2 | 3.12        | 3.3       | `:alpine-edge` |
+| 3.21        | 22        | 5.40      | 8.3, 8.2 | 3.12        | 3.3       | `:alpine-3.21` |
 | 3.19        | 18        | 5.36      | 8.1      | 3.11        | 3.2       | `:alpine-3.19` |
 | 3.16        | 16        | 5.34      | 8.0      | 3.10        | 3.1       | `:alpine-3.16` |
 | 3.15        | 16        | 5.34      | 7.4      | 3.9         | 3.0       | `:alpine-3.15` |

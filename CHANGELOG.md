@@ -1,3 +1,12 @@
+## 1.0.6 2025-01-28 <dave at tiredofit dot ca>
+
+   ### Added
+      - Unit 1.34.1
+
+   ### Changed
+      - Drop Alpine 3.20 build and replace with Alpine 3.21
+
+
 ## 1.0.5 2024-05-27 <dave at tiredofit dot ca>
 
    ### Added
