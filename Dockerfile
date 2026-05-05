@@ -1,7 +1,7 @@
 ARG DISTRO=alpine
 ARG DISTRO_VARIANT=3.21
 
-FROM docker.io/tiredofit/${DISTRO}:${DISTRO_VARIANT}
+FROM docker.io/xyksolutions1/docker-alpine:main
 LABEL maintainer="Dave Conroy (github.com/tiredofit)"
 
 ARG PHP_BASE=8.3
